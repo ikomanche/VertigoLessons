@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c4b275468f3344ebfdaeb384b126b2, type: 3}
-  m_Name: RotateSettings_Slow
+  m_Script: {fileID: 11500000, guid: 8b2764ce4fd1f7f408a11e185e7efdb0, type: 3}
+  m_Name: New Rigidbody Settings_Default
   m_EditorClassIdentifier: 
-  _speed: 50
+  _jumpForce: {x: 0, y: 20, z: 0}
