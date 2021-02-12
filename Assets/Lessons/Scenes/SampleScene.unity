@@ -225,12 +225,12 @@ GameObject:
   - component: {fileID: 1097933581}
   - component: {fileID: 1097933580}
   - component: {fileID: 1097933579}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &1097933579
 BoxCollider:
@@ -306,6 +306,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1271149601 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2958965410645347274, guid: b3919d0a08984eb45860ba0fe73f4dec,
+    type: 3}
+  m_PrefabInstance: {fileID: 2958965412295851633}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1271149606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271149601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db0d0bdc2d4109e4586bd7e113a21d8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1596148195
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,10 +362,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 446925225487077522, guid: b3919d0a08984eb45860ba0fe73f4dec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433898589002855778, guid: b3919d0a08984eb45860ba0fe73f4dec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2958965410645347274, guid: b3919d0a08984eb45860ba0fe73f4dec,
         type: 3}
       propertyPath: m_Name
       value: LocalPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958965410645347274, guid: b3919d0a08984eb45860ba0fe73f4dec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2958965410645347277, guid: b3919d0a08984eb45860ba0fe73f4dec,
         type: 3}
@@ -404,6 +437,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2958965411378795264, guid: b3919d0a08984eb45860ba0fe73f4dec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958965411378795269, guid: b3919d0a08984eb45860ba0fe73f4dec,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 3140602997746946397, guid: b3919d0a08984eb45860ba0fe73f4dec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112005318946484812, guid: b3919d0a08984eb45860ba0fe73f4dec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4212338567071967700, guid: b3919d0a08984eb45860ba0fe73f4dec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755293847988582092, guid: b3919d0a08984eb45860ba0fe73f4dec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5818536673005342013, guid: b3919d0a08984eb45860ba0fe73f4dec,
+        type: 3}
+      propertyPath: m_Drag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7123311627380467167, guid: b3919d0a08984eb45860ba0fe73f4dec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7138379127829002566, guid: b3919d0a08984eb45860ba0fe73f4dec,
+        type: 3}
+      propertyPath: _shootingManager
+      value: 
+      objectReference: {fileID: 1271149606}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3919d0a08984eb45860ba0fe73f4dec, type: 3}
 --- !u!1001 &8840370758917150216
