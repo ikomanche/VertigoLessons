@@ -324,6 +324,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db0d0bdc2d4109e4586bd7e113a21d8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1271149607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271149601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acec212d735fe424f9b4fc8cad0059a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputData: {fileID: 11400000, guid: 869377fdcf453a641a4378f1adaf6333, type: 2}
+  _tankTower: {fileID: 1301158700}
+--- !u!4 &1301158700 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1525053117444303349, guid: b3919d0a08984eb45860ba0fe73f4dec,
+    type: 3}
+  m_PrefabInstance: {fileID: 2958965412295851633}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1596148195
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,6 +571,12 @@ PrefabInstance:
       propertyPath: _inputData
       value: 
       objectReference: {fileID: 11400000, guid: 2341b3f1a476e7e4eb2b2741547d70ce,
+        type: 2}
+    - target: {fileID: 5300497068170671753, guid: 0403022305009894eb0fad74b6b74e8d,
+        type: 3}
+      propertyPath: _rotationInputData
+      value: 
+      objectReference: {fileID: 11400000, guid: 869377fdcf453a641a4378f1adaf6333,
         type: 2}
     - target: {fileID: 7186105594335955449, guid: 0403022305009894eb0fad74b6b74e8d,
         type: 3}
