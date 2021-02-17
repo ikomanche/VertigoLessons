@@ -23,4 +23,4 @@ MonoBehaviour:
   _keyBaseVerticalActive: 0
   PositiveVerKeyCode: 0
   NegativeVerKeyCode: 0
-  _increaseAmount: 0.015
+  _increaseAmount: 0.003
