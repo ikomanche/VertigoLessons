@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cda555868eec2545a47990699ccb9c5, type: 3}
-  m_Name: CameraSettings_LocalPlayer
+  m_Script: {fileID: 11500000, guid: 5a4f9b9c7b89e2246a97f0a1fe51f1fc, type: 3}
+  m_Name: WheelMovementSettings_LocalPlayer_Default
   m_EditorClassIdentifier: 
-  _rotationLerpSpeed: 1
-  _positionOffset: {x: 3.66, y: 1.5, z: -6}
-  _positionLerpSpeed: 5
+  wheelMovementSpeed: 1
