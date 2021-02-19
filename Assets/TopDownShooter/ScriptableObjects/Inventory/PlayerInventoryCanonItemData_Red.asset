@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b5ff08c67d540e4c929609afb5b0979, type: 3}
-  m_Name: PlayerInventoryCanonItemData_Default
+  m_Name: PlayerInventoryCanonItemData_Red
   m_EditorClassIdentifier: 
-  _itemID: defaultCanon
+  _itemID: redCanon
   _inventoryItemDataType: 0
-  _prefab: {fileID: -9200582061969906542, guid: 45af80d192066c047ab347875eaf1215,
+  _prefab: {fileID: -9200582061969906542, guid: f5393f7cf6c1fef49aa6a755a4330420,
     type: 3}
