@@ -8,7 +8,8 @@ namespace TopDownShooter.Inventory
     {
         [SerializeField] AbstractBasePlayerInventoryItemData[] _inventoryItemDataArray;
         [SerializeField] List<AbstractBasePlayerInventoryItemData>_instantiatedItemDataList;
-        public Transform Parent;
+        public Transform BodyParent;
+        public Transform CanonParent;
 
         public ReactiveCommand ReactiveShootCommand { get; private set; }
 

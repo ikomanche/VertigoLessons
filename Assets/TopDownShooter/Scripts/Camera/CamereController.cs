@@ -11,17 +11,17 @@ namespace TopDownShooter.Camera
         [SerializeField] private Transform _rotationTarget;
         //[SerializeField] private Transform _positionTarget;
         [SerializeField] private Transform _cameraTransform;
-        [SerializeField] private ShootingManager _shootingManager;
+        //[SerializeField] private ShootingManager _shootingManager;
 
         private void Update()
         {
             CameraRotationFollow();
             CameraMovementFollow();
-            if(Input.GetKeyDown(KeyCode.Space))
-            {
-                _shootingManager.Shoot(_cameraTransform.position, _cameraTransform.forward);
-                Debug.Log("Shot");
-            }
+            //if(Input.GetKeyDown(KeyCode.Space))
+            //{
+            //    _shootingManager.Shoot(_cameraTransform.position, _cameraTransform.forward);
+            //    Debug.Log("Shot");
+            //}
         }
 
         private void CameraRotationFollow()

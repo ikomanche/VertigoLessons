@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6564166887897027331}
   - component: {fileID: 9151110722636334040}
   - component: {fileID: -1737018369695817058}
+  - component: {fileID: 7037953595827215722}
   m_Layer: 8
   m_Name: TankFree_Body_Blue
   m_TagString: Untagged
@@ -96,6 +97,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f7f36a0c714e54fbcc40fd15332725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &7037953595827215722
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496069445490387011}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9606566, y: 1.4146373, z: 2.2644048}
+  m_Center: {x: 0.02493608, y: -0.08140385, z: -0.08295059}
 --- !u!1 &1704304240087266267
 GameObject:
   m_ObjectHideFlags: 0
