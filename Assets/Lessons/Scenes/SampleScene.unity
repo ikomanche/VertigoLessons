@@ -308,6 +308,7 @@ GameObject:
   - component: {fileID: 1097933581}
   - component: {fileID: 1097933580}
   - component: {fileID: 1097933579}
+  - component: {fileID: 1097933583}
   m_Layer: 9
   m_Name: Ground
   m_TagString: Untagged
@@ -389,6 +390,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1097933583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097933578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 335e5dfd9109aec4c9245c3bcc83187b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collider: {fileID: 1097933579}
 --- !u!1 &1134577012
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1482418215}
   - component: {fileID: 1482418214}
+  - component: {fileID: 1482418216}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -485,6 +500,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1482418216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482418213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a33d1bbf230abca459ecaf24c861705f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inventoryController: {fileID: 1482418214}
+  _shootInput: {fileID: 11400000, guid: 00b72364dbecf0042a1f93fbbbb0709b, type: 2}
 --- !u!1 &1596148195
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,7 +682,7 @@ PrefabInstance:
     - target: {fileID: 5300497068170671753, guid: 0403022305009894eb0fad74b6b74e8d,
         type: 3}
       propertyPath: _inputDataArray.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5300497068170671753, guid: 0403022305009894eb0fad74b6b74e8d,
         type: 3}
@@ -678,6 +707,12 @@ PrefabInstance:
       propertyPath: _inputDataArray.Array.data[3]
       value: 
       objectReference: {fileID: 11400000, guid: 73c5bb36857ec7a438e9fbc5b435a2e1,
+        type: 2}
+    - target: {fileID: 5300497068170671753, guid: 0403022305009894eb0fad74b6b74e8d,
+        type: 3}
+      propertyPath: _inputDataArray.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 00b72364dbecf0042a1f93fbbbb0709b,
         type: 2}
     - target: {fileID: 7186105594335955449, guid: 0403022305009894eb0fad74b6b74e8d,
         type: 3}
