@@ -7,6 +7,7 @@ namespace TopDownShooter.Inventory
 
     public class PlayerInventoryCanonItemMono : AbstractPlayerInventoryItemMono
     {
+        //took Damage from scriptableObject --w6 hw
         [SerializeField] private Transform _canonShootPoint;
         [SerializeField] private PlayerInventoryCanonItemData _playerInventoryCanonItemData;
         private float dmg;
