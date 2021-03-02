@@ -8,7 +8,7 @@ namespace TopDownShooter.Inventory
     [CreateAssetMenu(menuName = "TopDown Shooter/Inventory/Scriptable Shoot Manager")]
     public class ScriptableShootManager : AbstractScriptableManager<ScriptableShootManager>
     {
-        public void Shoot(Vector3 origin, Vector3 direction)
+        public void Shoot(Vector3 origin, Vector3 direction,float dmg)
         {
             RaycastHit rHit;
             var physic = Physics.Raycast(origin, direction, out rHit);            
@@ -18,7 +18,7 @@ namespace TopDownShooter.Inventory
                 int colliderInstanceID = rHit.collider.GetInstanceID();
                 if (DamagebleHelper.DamagebleList.ContainsKey(colliderInstanceID))
                 {
-                    DamagebleHelper.DamagebleList[colliderInstanceID].Damage(5);
+                    DamagebleHelper.DamagebleList[colliderInstanceID].Damage(dmg);
                 }
             }
         }

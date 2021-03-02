@@ -174,6 +174,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canonShootPoint: {fileID: 5928935541452935206}
+  _playerInventoryCanonItemData: {fileID: 11400000, guid: 1d23c4840381bc0479e49d6449030fa7,
+    type: 2}
 --- !u!1 &7426555638570104251
 GameObject:
   m_ObjectHideFlags: 0
