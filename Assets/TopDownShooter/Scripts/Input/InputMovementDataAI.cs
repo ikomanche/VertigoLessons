@@ -10,7 +10,7 @@ namespace TopDownShooter.AI
         public override void ProcessInput()
         {
             float distance = Vector3.Distance(_aiTransform.position, _currentTarget);
-            if(distance > 0)
+            if(distance > 5)
             {
                 Vertical = 1;
             }

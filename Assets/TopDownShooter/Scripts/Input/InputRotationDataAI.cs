@@ -9,15 +9,16 @@ namespace TopDownShooter.AI
     {
         public override void ProcessInput()
         {
-            Vector3 dir = _currentTarget - _aiTransform.position;
-            if(Mathf.Abs(dir.y - _aiTransform.rotation.eulerAngles.y) > 5)
-            {
-                Horizontal = 1;
-            }
-            else
-            {
-                Horizontal = 0;
-            }
+            base.ProcessInput();
+            //Vector3 dir = _currentTarget - _aiTransform.position;
+            //if(Mathf.Abs(dir.y - _aiTransform.rotation.eulerAngles.y) > 5)
+            //{
+            //    Horizontal = 1;
+            //}
+            //else
+            //{
+            //    Horizontal = 0;
+            //}
         }
     }
 }

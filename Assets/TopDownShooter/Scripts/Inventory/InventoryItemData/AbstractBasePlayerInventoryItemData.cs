@@ -17,7 +17,8 @@ namespace TopDownShooter.Inventory
 
         public virtual void Destroy()
         {
-            _compositeDisposable.Dispose(); //Unsubscribe
+            if(_compositeDisposable != null)
+                _compositeDisposable.Dispose(); //Unsubscribe
             Destroy(this);
         }
     }
