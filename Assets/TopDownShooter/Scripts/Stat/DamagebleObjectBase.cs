@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
 
-namespace TopDownShooter.Stat.Test
+namespace TopDownShooter.Stat
 {
     public class DamagebleObjectBase : MonoBehaviour, IDamageble
     {
@@ -10,6 +11,7 @@ namespace TopDownShooter.Stat.Test
         public int InstanceID { get; private set; }
         public float Health = 100;
         private Vector3 _defaultScale;
+        public ReactiveCommand OnDeath = new ReactiveCommand();
 
         protected virtual void Awake()
         {
@@ -18,11 +20,11 @@ namespace TopDownShooter.Stat.Test
             _defaultScale = transform.localScale;
         }
 
-        private void Update()
-        {
-            transform.localScale = Vector3.Lerp(transform.localScale,
-                (Health / 100) * _defaultScale, Time.deltaTime);
-        }
+        //private void Update()
+        //{
+        //    transform.localScale = Vector3.Lerp(transform.localScale,
+        //        (Health / 100) * _defaultScale, Time.deltaTime);
+        //}
 
         public virtual void Damage(float dmg)
         {
@@ -30,6 +32,7 @@ namespace TopDownShooter.Stat.Test
             Debug.Log("damaged : " + dmg +"cuurent health : " + Health);
             if(Health <= 0)
             {
+                OnDeath.Execute();
                 Destroy(gameObject);
             }
 
