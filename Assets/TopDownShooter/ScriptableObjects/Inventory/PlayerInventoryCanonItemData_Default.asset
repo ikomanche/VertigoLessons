@@ -16,5 +16,6 @@ MonoBehaviour:
   _inventoryItemDataType: 0
   _prefab: {fileID: -9200582061969906542, guid: 45af80d192066c047ab347875eaf1215,
     type: 3}
-  _damage: 5
+  _damage: 8
   _rpm: 1
+  _armorPenetration: 1
