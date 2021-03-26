@@ -8,7 +8,7 @@ namespace TopDownShooter.Inventory
 {
     [CreateAssetMenu(menuName = "TopDown Shooter/Inventory/Player Inventory Canon Item Data")]
     public class PlayerInventoryCanonItemData : 
-        AbstractPlayerInventoryItemData<PlayerInventoryCanonItemMono>
+        AbstractPlayerInventoryItemData<PlayerInventoryCanonItemMono>,IDamage
     {
         [SerializeField]private float _damage;
         public float Damage { get { return _damage; } }

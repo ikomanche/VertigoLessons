@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
+using TopDownShooter.Inventory;
 
 namespace TopDownShooter.Stat
 {
@@ -26,9 +27,9 @@ namespace TopDownShooter.Stat
         //        (Health / 100) * _defaultScale, Time.deltaTime);
         //}
 
-        public virtual void Damage(float dmg)
+        public virtual void Damage(IDamage dmg)
         {
-            Health -= dmg;
+            Health -= dmg.Damage;
             Debug.Log("damaged : " + dmg +"cuurent health : " + Health);
             if(Health <= 0)
             {
