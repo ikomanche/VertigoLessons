@@ -15,6 +15,9 @@ namespace TopDownShooter.Inventory
 
         [SerializeField] private float _rpm = 1f;
         public float RPM { get { return _rpm; } }
+        [Range(0,1)]
+        [SerializeField] private float _armorPenetration;
+        public float ArmorPenetration { get { return _armorPenetration; } }
 
         private float _lastShootTime;
         public override void Initialize(PlayerInventoryController targetPlayerInventory)
@@ -42,7 +45,7 @@ namespace TopDownShooter.Inventory
         {
             if (Time.time - _lastShootTime > _rpm)
             {
-                _instantiated.Shoot();
+                _instantiated.Shoot(this);
                 _lastShootTime = Time.time;
             }
             else

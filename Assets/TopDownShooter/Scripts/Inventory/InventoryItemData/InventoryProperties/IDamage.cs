@@ -7,5 +7,6 @@ namespace TopDownShooter.Inventory
     public interface IDamage
     {
         float Damage { get; }
+        float ArmorPenetration { get; }
     }
 }

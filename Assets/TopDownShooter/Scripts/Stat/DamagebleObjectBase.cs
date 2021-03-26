@@ -11,6 +11,7 @@ namespace TopDownShooter.Stat
         [SerializeField] private Collider _collider;
         public int InstanceID { get; private set; }
         public float Health = 100;
+        public float Armor = 100;
         private Vector3 _defaultScale;
         public ReactiveCommand OnDeath = new ReactiveCommand();
 
@@ -29,13 +30,21 @@ namespace TopDownShooter.Stat
 
         public virtual void Damage(IDamage dmg)
         {
-            Health -= dmg.Damage;
-            Debug.Log("damaged : " + dmg +"cuurent health : " + Health);
-            if(Health <= 0)
+            if(Armor > 0)
             {
-                OnDeath.Execute();
-                Destroy(gameObject);
+                Armor -= (dmg.Damage + (dmg.Damage * dmg.ArmorPenetration));
             }
+            else
+            {
+                Health -= dmg.Damage;
+                Debug.Log("damaged : " + dmg + "cuurent health : " + Health);
+                if (Health <= 0)
+                {
+                    OnDeath.Execute();
+                    Destroy(gameObject);
+                }
+            }
+            
 
         }
 
