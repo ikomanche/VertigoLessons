@@ -72,7 +72,7 @@ namespace TopDownShooter.AI
             _towerRotationInput.ProcessInput();
 
             if(_towerRotationInput.Horizontal < 0.2f && Vector3.Distance(_targetMovementPosition,
-                transform.position) < 5)
+                transform.position) < 25)
                 _inventoryController.ReactiveShootCommand.Execute();
         }
     }
