@@ -7,12 +7,12 @@ namespace TopDownShooter.PlayerControls
 {
     public class PlayerMovementController : MonoBehaviour
     {
-        [SerializeField] InputData _inputData;
+        [SerializeField] AbstractInputData _inputData;
         [SerializeField] Rigidbody _rigidbody;
         [SerializeField] Transform _targetTransform;
         [SerializeField] PlayerMovementSettings _playerMovementSettings;
 
-        public void InitializeInput(InputData inputData)
+        public void InitializeInput(AbstractInputData inputData)
         {
             _inputData = inputData;
         }

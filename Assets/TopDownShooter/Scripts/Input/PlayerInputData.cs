@@ -5,10 +5,9 @@ using UnityEngine;
 namespace TopDownShooter.PlayerInput
 {
     [CreateAssetMenu(menuName = "TopDown Shooter/User Input/Input Data")]
-    public class InputData : ScriptableObject
+    public class PlayerInputData : AbstractInputData
     {        
-        public float Horizontal;
-        public float Vertical;
+        
 
         [Header("Axis Base Control")]
         [SerializeField] private bool _axisActive;
@@ -25,24 +24,25 @@ namespace TopDownShooter.PlayerInput
         [SerializeField] private float _increaseAmount = 0.015f;
         //public float Jump;
 
-        public virtual void ProcessInput()
+        
+        public override void ProcessInput()
         {
-            if(_axisActive)
+            if (_axisActive)
             {
                 Horizontal = Input.GetAxis(AxisNameHorizontal);
                 Vertical = Input.GetAxis(AxisNameVertical);
             }
             else
             {
-                if(_keyBaseHorizontalActive)
+                if (_keyBaseHorizontalActive)
                 {
                     KeyBaseAxisControl(ref Horizontal, PositiveHorKeyCode, NegativeHorKeyCode);
                 }
-                if(_keyBaseVerticalActive)
+                if (_keyBaseVerticalActive)
                 {
                     KeyBaseAxisControl(ref Vertical, PositiveVerKeyCode, NegativeVerKeyCode);
                 }
-            }            
+            }
         }
 
         private void KeyBaseAxisControl(ref float value, KeyCode positive, KeyCode negative)

@@ -7,7 +7,7 @@ namespace TopDownShooter.PlayerControls
 {
     public class PlayerRotationController : MonoBehaviour
     {
-        [SerializeField] InputData _inputData;
+        [SerializeField] PlayerInputData _inputData;
         [SerializeField] Transform _tankTower;
 
         private void Update()
