@@ -8,7 +8,7 @@ namespace TopDownShooter.PlayerInput
     {
         //[SerializeField] InputData _movementInput;
         //[SerializeField] InputData _rotationInput;
-        [SerializeField] private PlayerInputData[] _inputDataArray;
+        [SerializeField] private AbstractInputData[] _inputDataArray;
         //private Vector3 _lastMouseInput;
         private void Update()
         {
