@@ -18,4 +18,6 @@ MonoBehaviour:
     type: 3}
   _damage: 8
   _rpm: 1
-  _armorPenetration: 1
+  _armorPenetration: 0.5
+  _timeBasedDamage: 0
+  _damageDuration: 0
