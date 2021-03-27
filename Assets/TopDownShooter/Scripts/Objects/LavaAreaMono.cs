@@ -16,6 +16,12 @@ namespace TopDownShooter.Objects
         [SerializeField] private float _armorPenetration;
         public float ArmorPenetration { get { return _armorPenetration; } }
 
+        [SerializeField] private float _timeBasedDamage;
+        public float TimeBasedDamage { get { return _timeBasedDamage; } }
+
+        [SerializeField] private float _damageDuration;
+        public float DamageDuration { get { return _damageDuration; } }
+
         private void OnTriggerEnter(Collider collider)
         {
             int colliderInstanceID = collider.GetInstanceID();

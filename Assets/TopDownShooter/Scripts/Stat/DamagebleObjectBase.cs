@@ -14,6 +14,7 @@ namespace TopDownShooter.Stat
         public float Armor = 100;
         private Vector3 _defaultScale;
         public ReactiveCommand OnDeath = new ReactiveCommand();
+        private bool isOnDamagable = false;
 
         protected virtual void Awake()
         {
@@ -30,6 +31,10 @@ namespace TopDownShooter.Stat
 
         public virtual void Damage(IDamage dmg)
         {
+            if(dmg.TimeBasedDamage > 0)
+            {
+                StartCoroutine(TimedBasedDamage(dmg.TimeBasedDamage, dmg.DamageDuration));
+            }
             if(Armor > 0)
             {
                 Armor -= (dmg.Damage + (dmg.Damage * dmg.ArmorPenetration));
@@ -44,8 +49,34 @@ namespace TopDownShooter.Stat
                     Destroy(gameObject);
                 }
             }
-            
+        }
 
+        IEnumerator TimedBasedDamage(float damage,float duration)
+        {
+            while(duration > 0 || isOnDamagable)
+            {
+                yield return new WaitForSeconds(1);
+                if (Armor <= 0)
+                    Health -= damage;
+                else
+                    Armor -= damage;
+                duration -= 1;
+                if (Health <= 0)
+                {
+                    OnDeath.Execute();
+                    Destroy(gameObject);
+                }                    
+            }           
+            
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            isOnDamagable = true;
+        }
+        private void OnTriggerExit(Collider other)
+        {
+            isOnDamagable = false;
         }
 
         public virtual void Destroy()
