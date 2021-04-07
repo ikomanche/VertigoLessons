@@ -5,7 +5,7 @@ using UniRx;
 
 namespace TopDownShooter.Network
 {
-    public enum PlayerNetworkState { Offline,Connecting,Connected,InRoom}
+    public enum PlayerNetworkState { Offline,Connecting,Connected,InRoom,JoiningRoom}
     public class MatchMakingController : Photon.PunBehaviour
     {
         [SerializeField] private float _delayToConnect = 2;
@@ -26,7 +26,14 @@ namespace TopDownShooter.Network
 
         public void CreateRoom()
         {
+            MessageBroker.Default.Publish(new EventPlayerNetworkStateChange(PlayerNetworkState.JoiningRoom));
             PhotonNetwork.CreateRoom(null);
+        }
+
+        public void JoinRandomRoom()
+        {
+            MessageBroker.Default.Publish(new EventPlayerNetworkStateChange(PlayerNetworkState.JoiningRoom));
+            PhotonNetwork.JoinRandomRoom();
         }
 
         public override void OnJoinedRoom()

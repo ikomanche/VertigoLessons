@@ -8,7 +8,7 @@ namespace TopDownShooter
     {
         [SerializeField] private AbstractScriptableManagerBase[] _abstractScriptableManagerArray;
         private List<AbstractScriptableManagerBase>_instantiatedAbstractScriptableManagerList;
-
+        [SerializeField] private bool _dontDestroyOnLoad = true;
         private void Start()
         {
             _instantiatedAbstractScriptableManagerList = new List<AbstractScriptableManagerBase>
@@ -18,6 +18,10 @@ namespace TopDownShooter
                 var instantiated = Instantiate(_abstractScriptableManagerArray[i]);
                 instantiated.Initialize();
                 _instantiatedAbstractScriptableManagerList.Add(instantiated);
+            }
+            if(_dontDestroyOnLoad)
+            {
+                DontDestroyOnLoad(gameObject);
             }
         }
 
