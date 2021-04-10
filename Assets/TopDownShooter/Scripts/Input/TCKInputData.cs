@@ -28,6 +28,10 @@ namespace TopDownShooter.PlayerInput
                 Vector2 move = TCKInput.GetAxis(AxisName);
                 Horizontal = move.x;
                 Vertical = move.y;
+                if (Mathf.Abs(move.x) < 0.016)
+                    Horizontal = 0;
+                if (Mathf.Abs(move.y) < 0.016)
+                    Vertical = 0;
             }
             
         }
