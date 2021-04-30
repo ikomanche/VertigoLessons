@@ -41,6 +41,11 @@ namespace TopDownShooter.Network
             base.OnJoinedRoom();
             MessageBroker.Default.Publish(new EventPlayerNetworkStateChange(PlayerNetworkState.InRoom));
         }
+        public override void OnLeftRoom()
+        {
+            base.OnLeftRoom();
+            MessageBroker.Default.Publish(new EventPlayerNetworkStateChange(PlayerNetworkState.Connected));
+        }
 
         public override void OnDisconnectedFromPhoton()
         {
@@ -53,6 +58,11 @@ namespace TopDownShooter.Network
             base.OnConnectedToMaster();
             MessageBroker.Default.Publish(new EventPlayerNetworkStateChange(PlayerNetworkState.Connected));
             Debug.Log("On Connected To MASTER");
+        }
+        public override void OnJoinedLobby()
+        {
+            base.OnJoinedLobby();
+            Debug.Log("ON JOINED LOBBY");
         }
     }
 }
