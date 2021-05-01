@@ -9,25 +9,27 @@ namespace TopDownShooter.Network
         [SerializeField] private NetworkPlayer _localPlayerPrefab;
         [SerializeField] private NetworkPlayer _remotePlayerPrefab;
 
-        private IEnumerator Start()
+        private void Start()
         {
-            yield return new WaitForSeconds(10);
             InstantiateLocalPlayer();
         }
 
         public void InstantiateLocalPlayer()
         {
             var instantiated = Instantiate(_localPlayerPrefab);
+            int viewId = PhotonNetwork.AllocateViewID();
+            instantiated.photonView.viewID = viewId;
             instantiated.SetOwnership(PhotonNetwork.player);
-            photonView.RPC("RPC_InstantiateLocalPlayer", PhotonTargets.OthersBuffered);
+            photonView.RPC("RPC_InstantiateLocalPlayer", PhotonTargets.OthersBuffered,viewId);
             PhotonNetwork.isMessageQueueRunning = true;
         }
 
         [PunRPC]
-        public void RPC_InstantiateLocalPlayer(PhotonMessageInfo photonMessageInfo)
+        public void RPC_InstantiateLocalPlayer(int viewId,PhotonMessageInfo photonMessageInfo)
         {
             Debug.Log("Instantiate Local Player");
             var instantiated = Instantiate(_remotePlayerPrefab);
+            instantiated.photonView.viewID = viewId;
             instantiated.SetOwnership(photonMessageInfo.sender);
         }
     }
