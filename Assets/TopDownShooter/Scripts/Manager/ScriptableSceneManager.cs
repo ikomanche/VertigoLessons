@@ -15,7 +15,6 @@ namespace TopDownShooter
         [SerializeField] private string _GameScene;        
         public override void Initialize()
         {
-            SceneManager.sceneLoaded += OnSceneLoaded;
             base.Initialize();
             SceneManager.LoadScene(_MenuScene);
             MessageBroker.Default.Receive<EventPlayerNetworkStateChange>().Subscribe(OnPlayerNetworkState)
@@ -27,11 +26,6 @@ namespace TopDownShooter
         {
             base.Destroy();
         }
-        private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
-        {
-            MessageBroker.Default.Publish(new EventSceneLoaded(arg0.name));
-        }
-
         private void OnPlayerNetworkState(EventPlayerNetworkStateChange obj)
         {
             Debug.Log("Network State Changed On Scene Manager To : " + obj.PlayerNetworkState);
