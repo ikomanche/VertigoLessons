@@ -19,10 +19,10 @@ namespace TopDownShooter
                 instantiated.Initialize();
                 _instantiatedAbstractScriptableManagerList.Add(instantiated);
             }
-            if(_dontDestroyOnLoad)
-            {
-                DontDestroyOnLoad(gameObject);
-            }
+            //if(_dontDestroyOnLoad)
+            //{
+            //    DontDestroyOnLoad(gameObject);
+            //}
         }
 
         private void OnDestroy()
