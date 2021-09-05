@@ -13,7 +13,8 @@ namespace TopDownShooter.Network
         private const string _networkVersion = "v1.0";
         private void Awake()
         {
-            Instance = this;            
+            Instance = this;
+            PhotonNetwork.CacheSendMonoMessageTargets(typeof(MatchMakingController));
         }
 
         IEnumerator Start()
@@ -40,6 +41,7 @@ namespace TopDownShooter.Network
         {
             base.OnJoinedRoom();
             MessageBroker.Default.Publish(new EventPlayerNetworkStateChange(PlayerNetworkState.InRoom));
+            PhotonNetwork.isMessageQueueRunning = false;
         }
         public override void OnLeftRoom()
         {
