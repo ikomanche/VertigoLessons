@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
+
 using TopDownShooter.Stat;
 
 namespace TopDownShooter.Inventory
@@ -11,7 +13,8 @@ namespace TopDownShooter.Inventory
         public void Shoot(Vector3 origin, Vector3 direction,IDamage damage)
         {
             RaycastHit rHit;
-            var physic = Physics.Raycast(origin, direction, out rHit);            
+            var physic = Physics.Raycast(origin, direction, out rHit);
+            MessageBroker.Default.Publish(new EventPlayerShoot(origin));
             if (physic)
             {
                 Debug.Log(" Collider :" + rHit.collider.name);
