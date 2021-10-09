@@ -265,6 +265,7 @@ MonoBehaviour:
   _photonViewsForOwnership:
   - {fileID: 1659143103334801697}
   - {fileID: 7461706938240928704}
+  _inventoryController: {fileID: 255416618816248950}
 --- !u!114 &1659143103334801697
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,10 +11,10 @@ namespace TopDownShooter.Inventory
         [SerializeField] private Transform _canonShootPoint;
         [SerializeField] private PlayerInventoryCanonItemData _playerInventoryCanonItemData;
         //private float dmg;
-        public void Shoot(IDamage damage)
+        public void Shoot(IDamage damage,int shooterId)
         {
             //dmg = _playerInventoryCanonItemData.Damage;
-            ScriptableShootManager.Instance.Shoot(_canonShootPoint.position, _canonShootPoint.forward,damage);
+            ScriptableShootManager.Instance.Shoot(_canonShootPoint.position, _canonShootPoint.forward,damage,shooterId);
         }
     }
 }
