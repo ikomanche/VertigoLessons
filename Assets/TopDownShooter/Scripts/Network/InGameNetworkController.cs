@@ -30,7 +30,7 @@ namespace TopDownShooter.Network
                     break;
                 default:
                     _inGameNetworkState = InGameNetworkState.NotReady;
-                    break;
+                    break; 
             }
         }
 
@@ -42,20 +42,25 @@ namespace TopDownShooter.Network
         public void InstantiateLocalPlayer()
         {
             var instantiated = Instantiate(_localPlayerPrefab);
-            int viewId = PhotonNetwork.AllocateViewID();
-            instantiated.photonView.viewID = viewId;
-            instantiated.SetOwnership(PhotonNetwork.player);
-            photonView.RPC("RPC_InstantiateLocalPlayer", PhotonTargets.OthersBuffered,viewId);
+            int[] allocatedViewIdArray = new int[instantiated.PhotonViews.Length];
+            for (int i = 0; i < allocatedViewIdArray.Length; i++)
+            {
+                allocatedViewIdArray[i] = PhotonNetwork.AllocateViewID();
+            }
+            //int viewId = PhotonNetwork.AllocateViewID();
+            //instantiated.photonView.viewID = viewId;
+            instantiated.SetOwnership(PhotonNetwork.player,allocatedViewIdArray);
+            photonView.RPC("RPC_InstantiateLocalPlayer", PhotonTargets.OthersBuffered,allocatedViewIdArray);
             PhotonNetwork.isMessageQueueRunning = true;
         }
 
         [PunRPC]
-        public void RPC_InstantiateLocalPlayer(int viewId,PhotonMessageInfo photonMessageInfo)
+        public void RPC_InstantiateLocalPlayer(int[] viewIdArray,PhotonMessageInfo photonMessageInfo)
         {
-            Debug.Log("Instantiate Local Player");
+            Debug.Log("Instantiate  Player" + photonMessageInfo.sender.name);
             var instantiated = Instantiate(_remotePlayerPrefab);
-            instantiated.photonView.viewID = viewId;
-            instantiated.SetOwnership(photonMessageInfo.sender);
+            //instantiated.photonView.viewID = viewId;
+            instantiated.SetOwnership(photonMessageInfo.sender,viewIdArray);
         }
     }
 }
