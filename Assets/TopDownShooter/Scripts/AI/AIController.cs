@@ -23,7 +23,7 @@ namespace TopDownShooter.AI
         private CompositeDisposable _targetDispose;
         //public Transform _movementTarget;
         //public Transform _towerTarget;
-        private void Awake()
+        private void Start()
         {
             _aiMovementInput = Instantiate(_aiMovementInput);
             _aiRotationtInput = Instantiate(_aiRotationtInput);
@@ -46,7 +46,7 @@ namespace TopDownShooter.AI
                 TargetList[0].transform.position);
 
             _targetDispose = new CompositeDisposable();
-            TargetList[0].OnDeath.Subscribe(OnTargetDeath).AddTo(_targetDispose);
+            TargetList[0].PlayerStat.OnDeath.Subscribe(OnTargetDeath).AddTo(_targetDispose);
         }
 
         private void OnTargetDeath(Unit obj)

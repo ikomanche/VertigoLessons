@@ -6,14 +6,15 @@ using TopDownShooter.Inventory;
 
 namespace TopDownShooter.Stat
 {
-    public class DamagebleObjectBase : MonoBehaviour, IDamageble
+    public class DamagebleObjectBase : MonoBehaviour, IDamageble,IPlayerStatHolder
     {
         [SerializeField] private Collider _collider;
         public int InstanceID { get; private set; }
-        public float Health = 100;
-        public float Armor = 100;
+
+        public PlayerStat PlayerStat { get; set; }
+
         private Vector3 _defaultScale;
-        public ReactiveCommand OnDeath = new ReactiveCommand();
+        
         private bool isOnDamagable = false;
 
         protected virtual void Awake()
@@ -35,39 +36,30 @@ namespace TopDownShooter.Stat
             {
                 StartCoroutine(TimedBasedDamage(dmg.TimeBasedDamage, dmg.DamageDuration));
             }
-            if(Armor > 0)
-            {
-                Armor -= (dmg.Damage + (dmg.Damage * dmg.ArmorPenetration));
-            }
             else
             {
-                Health -= dmg.Damage;
-                Debug.Log("damaged : " + dmg + "cuurent health : " + Health);
-                if (Health <= 0)
-                {
-                    OnDeath.Execute();
-                    Destroy(gameObject);
-                }
+                PlayerStat.Damage(dmg);
             }
+            
         }
 
         IEnumerator TimedBasedDamage(float damage,float duration)
         {
-            while(duration > 0 || isOnDamagable)
+            while (duration > 0 || isOnDamagable)
             {
                 yield return new WaitForSeconds(1);
-                if (Armor <= 0)
-                    Health -= damage;
-                else
-                    Armor -= damage;
+                //if (Armor <= 0)
+                //    Health.Value -= damage;
+                //else
+                //    Armor -= damage;
                 duration -= 1;
-                if (Health <= 0)
-                {
-                    OnDeath.Execute();
-                    Destroy(gameObject);
-                }                    
-            }           
-            
+                //if (Health.Value <= 0)
+                //{
+                //    OnDeath.Execute();
+                //    Destroy(gameObject);
+                //}
+                PlayerStat.Damage(damage);
+            }
         }
 
         private void OnTriggerEnter(Collider other)
@@ -82,6 +74,11 @@ namespace TopDownShooter.Stat
         public virtual void Destroy()
         {
             this.DestroyDamageble();
-        }        
+        }
+
+        public void SetStat(PlayerStat stat)
+        {
+            PlayerStat = stat;
+        }
     }
 }

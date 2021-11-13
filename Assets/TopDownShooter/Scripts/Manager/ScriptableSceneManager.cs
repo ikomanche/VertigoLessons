@@ -44,11 +44,14 @@ namespace TopDownShooter
                 case PlayerNetworkState.Connected:
                     break;
                 case PlayerNetworkState.InRoom:
-                    PhotonNetwork.isMessageQueueRunning = false;
-                    SceneManager.LoadScene(_GameScene);
-                    break;
+                        PhotonNetwork.isMessageQueueRunning = false;
+                        SceneManager.LoadScene(_GameScene);
+                       break;
                 case PlayerNetworkState.JoiningRoom:
                     
+                    break;
+                case PlayerNetworkState.LeavingRoom:
+                        SceneManager.LoadScene(_MenuScene);
                     break;
                 default:
                     break;
