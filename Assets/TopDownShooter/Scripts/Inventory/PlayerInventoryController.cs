@@ -10,7 +10,7 @@ namespace TopDownShooter.Inventory
         public int Id
         {
             get;
-            set;
+            set;//branchtest
         }
 
         [SerializeField] List<AbstractBasePlayerInventoryItemData>_instantiatedItemDataList;
