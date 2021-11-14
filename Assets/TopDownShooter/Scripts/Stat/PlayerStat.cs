@@ -19,7 +19,7 @@ namespace TopDownShooter.Stat
         public PlayerStat(int id,bool isLocalPlayer)
         {
             Id = id;
-            IsLocalPlayer = IsLocalPlayer;
+            IsLocalPlayer = isLocalPlayer;
             ScriptableStatManager.Instance.RegisterStat(this);
         }
 

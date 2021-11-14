@@ -23,7 +23,7 @@ namespace TopDownShooter.Network
                 _photonViewsForOwnership[i].TransferOwnership(photonPlayer);
             }
             //_inventoryController.Id = photonPlayer.ID;
-            PlayerStat = new PlayerStat(photonPlayer.ID, photonPlayer.isLocal);
+            PlayerStat = new PlayerStat(photonPlayer.ID, photonPlayer.IsLocal);
             //IsLocalPlayer = photonPlayer.isLocal;
             for (int i = 0; i < _playerStatHolders.Count; i++)
             {
