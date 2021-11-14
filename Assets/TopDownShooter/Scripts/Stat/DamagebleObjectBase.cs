@@ -34,7 +34,7 @@ namespace TopDownShooter.Stat
         {
             if(dmg.TimeBasedDamage > 0)
             {
-                StartCoroutine(TimedBasedDamage(dmg.TimeBasedDamage, dmg.DamageDuration));
+                StartCoroutine(TimedBasedDamage(dmg.TimeBasedDamage, dmg.DamageDuration,dmg.Stat));
             }
             else
             {
@@ -43,7 +43,7 @@ namespace TopDownShooter.Stat
             
         }
 
-        IEnumerator TimedBasedDamage(float damage,float duration)
+        IEnumerator TimedBasedDamage(float damage,float duration,PlayerStat playerStat)
         {
             while (duration > 0 || isOnDamagable)
             {
@@ -58,7 +58,7 @@ namespace TopDownShooter.Stat
                 //    OnDeath.Execute();
                 //    Destroy(gameObject);
                 //}
-                PlayerStat.Damage(damage);
+                PlayerStat.Damage(damage,playerStat);
             }
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using System;
+using TopDownShooter.Stat;
 
 namespace TopDownShooter.Inventory
 {
@@ -24,6 +25,8 @@ namespace TopDownShooter.Inventory
 
         [SerializeField] private float _damageDuration = 0;
         public float DamageDuration { get { return _damageDuration; } }
+
+        public PlayerStat Stat { get { return _inventoryController.PlayerStat; } }
 
         private float _lastShootTime;
         public override void Initialize(PlayerInventoryController targetPlayerInventory)
@@ -51,7 +54,7 @@ namespace TopDownShooter.Inventory
         {
             if (Time.time - _lastShootTime > _rpm)
             {
-                _instantiated.Shoot(this,_inventoryController.PlayerStat.Id);
+                _instantiated.Shoot(this,_inventoryController.PlayerStat);
                 _lastShootTime = Time.time;
             }
             else

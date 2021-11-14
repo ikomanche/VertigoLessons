@@ -45,4 +45,5 @@ MonoBehaviour:
   - TaggedPlayer
   - RPC_InstantiateLocalPlayer
   - RPC_Shoot
+  - RPC_Damage
   DisableAutoOpenWizard: 1

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TopDownShooter.Stat;
 using UnityEngine;
 
 namespace TopDownShooter.Inventory
@@ -10,5 +11,7 @@ namespace TopDownShooter.Inventory
         float ArmorPenetration { get; }
         float TimeBasedDamage { get; }
         float DamageDuration { get; }
+
+        PlayerStat Stat { get; }
     }
 }

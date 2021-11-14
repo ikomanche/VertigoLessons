@@ -9,15 +9,18 @@ namespace TopDownShooter.Stat
     public class PlayerStat: IDamageble
     {
         public int Id;
+        public bool IsLocalPlayer { get; set; }
 
         public int InstanceID { get; private set; } = -1;
         public ReactiveProperty<float> Armor = new ReactiveProperty<float>(100);
         public ReactiveProperty<float> Health = new ReactiveProperty<float>(100);
         public ReactiveCommand OnDeath = new ReactiveCommand();
 
-        public PlayerStat(int id)
+        public PlayerStat(int id,bool isLocalPlayer)
         {
             Id = id;
+            IsLocalPlayer = IsLocalPlayer;
+            ScriptableStatManager.Instance.RegisterStat(this);
         }
 
         public void Damage(IDamage dmg)
@@ -36,8 +39,9 @@ namespace TopDownShooter.Stat
                     //Destroy(gameObject);
                 }
             }
+            MessageBroker.Default.Publish(new EventPlayerGiveDamage(dmg.Damage, this,dmg.Stat));
         }
-        public void Damage(float dmg)
+        public void Damage(float dmg,PlayerStat shooter)
         {
             if (Armor.Value > 0)
             {
@@ -53,6 +57,7 @@ namespace TopDownShooter.Stat
                     //Destroy(gameObject);
                 }
             }
+            MessageBroker.Default.Publish(new EventPlayerGiveDamage(dmg, this,shooter));
         }
     }
 }

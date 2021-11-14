@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using System;
+using TopDownShooter.Stat;
 
 namespace TopDownShooter.Inventory
 {
@@ -13,13 +14,23 @@ namespace TopDownShooter.Inventory
         public override void Initialize()
         {
             base.Initialize();
-            MessageBroker.Default.Receive<EventPlayerShoot>().Subscribe(OnPlayerShoot)
-                .AddTo(_compositeDisposable);
+            MessageBroker.Default.Receive<EventPlayerShoot>().
+                Subscribe(OnPlayerShoot).AddTo(_compositeDisposable);
+            MessageBroker.Default.Receive<EventPlayerGiveDamage>().
+                Subscribe(OnPlayerGetDamage).AddTo(_compositeDisposable);
         }
+
 
         private void OnPlayerShoot(EventPlayerShoot obj)
         {
             Instantiate(_playerShootEffect, obj.Origin,Quaternion.identity);
+        }
+        private void OnPlayerGetDamage(EventPlayerGiveDamage obj)
+        {
+            if (obj.ReceiverStat.IsLocalPlayer)
+            {
+                Debug.Log("Local player get damage");
+            }
         }
     }
 }

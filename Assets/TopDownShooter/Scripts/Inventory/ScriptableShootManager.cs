@@ -10,11 +10,11 @@ namespace TopDownShooter.Inventory
     [CreateAssetMenu(menuName = "TopDown Shooter/Inventory/Scriptable Shoot Manager")]
     public class ScriptableShootManager : AbstractScriptableManager<ScriptableShootManager>
     {
-        public void Shoot(Vector3 origin, Vector3 direction,IDamage damage,int shooterId)
+        public void Shoot(Vector3 origin, Vector3 direction,IDamage damage,PlayerStat stat)
         {
             RaycastHit rHit;
             var physic = Physics.Raycast(origin, direction, out rHit);
-            MessageBroker.Default.Publish(new EventPlayerShoot(origin,shooterId));
+            MessageBroker.Default.Publish(new EventPlayerShoot(origin,stat));
             if (physic)
             {
                 Debug.Log(" Collider :" + rHit.collider.name);
